@@ -123,9 +123,11 @@ precmd() {
   vcs_info
 
   # show username@host if logged in through SSH
+  prompt_username=" %F{red}%n%f@%F{130}%M%f"
   [[ "$SSH_CONNECTION" != ''  ]] && IPA=$(wget -qO- http://ipecho.net/plain &)
   [[ "$SSH_CONNECTION" != ''  ]] && prompt_username=" %F{yellow}%n%f@%F{red}$IPA%f"
-  print -P '\n%F{orange}%$prompt_username%F{yellow}$(cmd_exec_time)%f'
+  
+  print -P '\n%F{blue}%~%f$prompt_username%F{yellow}$(cmd_exec_time)%f'
 
   # remove the cmd_timestamp, indicating that precmd has completed
   unset cmd_timestamp
