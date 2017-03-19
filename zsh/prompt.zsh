@@ -124,7 +124,7 @@ precmd() {
 
   # show username@host if logged in through SSH
   [[ "$SSH_CONNECTION" != ''  ]] && IPA=$(wget -qO- http://ipecho.net/plain &)
-  [[ "$SSH_CONNECTION" != ''  ]] && prompt_username=" %F{242}%n@%F{red}$IPA%f"
+  [[ "$SSH_CONNECTION" != ''  ]] && prompt_username=" %F{FF8C00}%n@%F{red}$IPA%f"
   print -P '\n%F{orange}%$prompt_username%F{yellow}$(cmd_exec_time)%f'
 
   # remove the cmd_timestamp, indicating that precmd has completed
